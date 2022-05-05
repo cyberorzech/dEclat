@@ -82,8 +82,8 @@ def main():
     # #print(json.dumps(json_response, indent=4, sort_keys=True))
 
     bearer_token = os.environ.get("bearer-token")
-    x = Tweets(bearer_token, "cyber", "security")
-    x.get_tweets(24)
+    x = Tweets(bearer_token, "z")
+    x.get_tweets()
     x.save_tweets()
 
 

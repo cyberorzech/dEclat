@@ -14,17 +14,23 @@ class Tweets:
         cls.__tweets_path = get_settings()["TWEETS_PATH"]
         cls.tweets = list()
         cls.__headers = cls.__create_headers(bearer_token)
-        cls.__query = cls.__create_query(keywords)   
+        cls.__query = cls.__create_query(keywords) 
+        # cls.__query = "en:lang"  
 
     @logger.catch
     def get_tweets(cls, number_of_tweets=10):
-        next_token = dict()
-        for _ in tqdm(range(int(number_of_tweets / MAX_RESULTS_PER_PAGE) + 1)):
-            url, query_params = cls.__create_url(cls.__query, next_token)
-            json_response = cls.__connect_to_endpoint(url, cls.__headers, query_params, next_token)
-            next_token = json_response["meta"]["next_token"]
-            cls.tweets.append(json_response)
-        return cls.tweets
+        try:
+            next_token = dict()
+            for _ in tqdm(range(int(number_of_tweets / MAX_RESULTS_PER_PAGE) + 1)):
+                url, query_params = cls.__create_url(cls.__query, next_token)
+                json_response = cls.__connect_to_endpoint(url, cls.__headers, query_params, next_token)
+                if not json_response:
+                    raise RuntimeError(f"Got empty response. Query: {cls.__query}")
+                next_token = json_response["meta"]["next_token"]
+                cls.tweets.append(json_response)
+            return cls.tweets
+        except RuntimeError as re:
+            logger.error(re)
 
     @logger.catch
     def save_tweets(cls, tweets=None) -> None:
@@ -47,7 +53,7 @@ class Tweets:
             if index % 2 == 0:
                 query += el
             else:
-                query += " AND "
+                query += " OR "
                 query += el
         query += " lang:en"
         return query
