@@ -24,6 +24,7 @@ from dotenv import load_dotenv
 from loguru import logger
 
 from src.logger import initialize_logger
+from src.tweets_getter import Tweets
 
 
 def auth():
@@ -33,7 +34,7 @@ def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     return headers
 
-def create_url(keyword, start_date, end_date, max_results = 10):
+def create_url(keyword, max_results = 10):
     """
     search_url to url do endpointa
     query_params sa zalezne od endpointu
@@ -68,15 +69,22 @@ def connect_to_endpoint(url, headers, params, next_token = None):
     return response.json()
 
 def main():
-    headers = create_headers(auth())
-    keyword = "cybersecurity lang:en"
-    start_time = "2021-03-01T00:00:00.000Z"
-    end_time = "2021-03-31T00:00:00.000Z"
-    max_results = 15
+    # headers = create_headers(auth())
+    # keyword = "cybersecurity lang:en"
+    # # start_time = "2021-03-01T00:00:00.000Z"
+    # # end_time = "2021-03-31T00:00:00.000Z"
+    # max_results = 10
 
-    url, query_params = create_url(keyword, start_time, end_time, max_results)
-    json_response = connect_to_endpoint(url, headers, query_params)
-    print(json.dumps(json_response, indent=4, sort_keys=True))
+    # url, query_params = create_url(keyword, max_results)
+    # json_response = connect_to_endpoint(url, headers, query_params)
+    # with open("result.json", "w") as f:
+    #     json.dump(json_response, f)
+    # #print(json.dumps(json_response, indent=4, sort_keys=True))
+
+    bearer_token = os.environ.get("bearer-token")
+    x = Tweets(bearer_token, "cyber", "security")
+    x.get_tweets(24)
+    x.save_tweets()
 
 
 if __name__ == "__main__":

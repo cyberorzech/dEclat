@@ -2,3 +2,138 @@
 [32m2022-05-05 17:59:30.524[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m56[0m - [32m[1mGood[0m
 [32m2022-05-05 18:04:42.412[0m | [1mINFO    [0m | [36m__main__[0m:[36mmain[0m:[36m71[0m - [1m('https://api.twitter.com/2/tweets/search/all', {'query': 'xbox lang:en', 'start_time': '2021-03-01T00:00:00.000Z', 'end_time': '2021-03-31T00:00:00.000Z', 'max_results': 15, 'expansions': 'author_id,in_reply_to_user_id,geo.place_id', 'tweet.fields': 'id,text,author_id,in_reply_to_user_id,geo,conversation_id,created_at,lang,public_metrics,referenced_tweets,reply_settings,source', 'user.fields': 'id,name,username,created_at,description,public_metrics,verified', 'place.fields': 'full_name,id,country,country_code,geo,name,place_type', 'next_token': {}})[0m
 [32m2022-05-05 18:05:33.505[0m | [1mINFO    [0m | [36m__main__[0m:[36mmain[0m:[36m72[0m - [1mhttps://api.twitter.com/2/tweets/search/all[0m
+[32m2022-05-05 19:29:39.059[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m24[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (39824), thread 'MainThread' (140288086615872):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f9754c9ab00>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7f9754c992d0>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f9754c5bb20>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m24[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber AND security lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f9754c5bb20>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f9754c5bb20>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m92[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7f975c972ca0>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["cyber AND security lang:en"]},"message":"There were errors processing your request: Ambiguous use of and as a keyword. Use a space to logically join two clauses, or \\"and\\" to find occurrences of and in text (at position 7)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-05 19:29:39.064[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m86[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (39824), thread 'MainThread' (140288086615872):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f9754c9ab00>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7f9754c992d0>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f9754c5bb20>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mnext_token[0m [35m[1m=[0m [1mjson_response[0m[1m[[0m[36m"meta"[0m[1m][0m[1m[[0m[36m"next_token"[0m[1m][0m
+    [36m             └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not subscriptable[0m
+[32m2022-05-05 19:30:23.037[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m27[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (40047), thread 'MainThread' (140410789558080):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7fb3e6752dd0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7fb3e67515a0>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7fb3e6715870>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m27[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber AND security lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7fb3e6715870>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7fb3e6715870>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m95[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7fb3ee416b60>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["cyber AND security lang:en"]},"message":"There were errors processing your request: Ambiguous use of and as a keyword. Use a space to logically join two clauses, or \\"and\\" to find occurrences of and in text (at position 7)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-05 19:30:23.042[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m86[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (40047), thread 'MainThread' (140410789558080):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7fb3e6752dd0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7fb3e67515a0>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7fb3e6715870>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m28[0m, in [35mget_tweets[0m
+    [1mnext_token[0m [35m[1m=[0m [1mjson_response[0m[1m[[0m[36m"meta"[0m[1m][0m[1m[[0m[36m"next_token"[0m[1m][0m
+    [36m             └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not subscriptable[0m
+[32m2022-05-05 19:32:30.811[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (40682), thread 'MainThread' (139776567424832):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f203bdf6b00>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7f203bdf5630>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f203bdb7bb0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber AND security lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f203bdb7bb0>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f203bdb7bb0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m89[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7f2043abab60>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["cyber AND security lang:en"]},"message":"There were errors processing your request: Ambiguous use of and as a keyword. Use a space to logically join two clauses, or \\"and\\" to find occurrences of and in text (at position 7)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-05 19:32:30.815[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m86[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (40682), thread 'MainThread' (139776567424832):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m93[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f203bdf6b00>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m86[0m, in [35mmain[0m
+    [1mx[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m24[0m[1m)[0m
+    [36m│ └ [0m[36m[1m<function Tweets.get_tweets at 0x7f203bdf5630>[0m
+    [36m└ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f203bdb7bb0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m26[0m, in [35mget_tweets[0m
+    [1mnext_token[0m [35m[1m=[0m [1mjson_response[0m[1m[[0m[36m"meta"[0m[1m][0m[1m[[0m[36m"next_token"[0m[1m][0m
+    [36m             └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not subscriptable[0m

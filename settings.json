@@ -1,5 +1,7 @@
 {
     "LOG_FILE": "auto",
     "LOG_LVL": "INFO",
-    "LOG_RETENTION": "5d"
+    "LOG_RETENTION": "5d",
+    "TWEETS_PATH": "fixtures/raw_tweets.json",
+    "MAX_RESULTS_PER_PAGE": 10
 }
