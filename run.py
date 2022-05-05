@@ -21,6 +21,9 @@ import unicodedata
 # To add wait time between requests
 import time
 from dotenv import load_dotenv
+from loguru import logger
+
+from src.logger import initialize_logger
 
 
 def auth():
@@ -28,9 +31,10 @@ def auth():
 
 
 def main():
-    pass
+    logger.success("Good")
 
 
 if __name__ == "__main__":
     load_dotenv()
+    initialize_logger()
     main()
