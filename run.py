@@ -31,7 +31,7 @@ def main():
     
     declat_input = add_padding_to_tweet_lists(declat_input)
     declat_input = convert_list_of_lists_to_df(declat_input)
-    declat_input.to_csv("fixtures/result.csv", sep=";")
+    declat_input.to_csv("fixtures/result.csv", sep=";", index=False)
         
         
 
