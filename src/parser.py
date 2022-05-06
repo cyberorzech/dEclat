@@ -1,3 +1,5 @@
+import numpy as np
+
 from nltk import download, pos_tag
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -58,6 +60,21 @@ def is_noun(text: str) -> bool:
             if(tag == 'NN' or tag == 'NNS'):
                 return True
     return False
+
+@logger.catch
+def add_padding_to_tweet_lists(tweets: list) -> list:
+    current_max = 0
+    for tweet in tweets:
+        tweet_length = len(tweet)
+        if tweet_length > current_max:
+            current_max = tweet_length
+
+    tweets_with_padding = list()
+    for tweet in tweets:
+        if len(tweet) < current_max:
+            tweet = tweet + [np.nan] * (current_max - len(tweet))
+        tweets_with_padding.append(tweet)
+    return tweets_with_padding
     
 
 
