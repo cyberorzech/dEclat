@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 from nltk import download, pos_tag
 from nltk.corpus import stopwords
@@ -75,6 +76,16 @@ def add_padding_to_tweet_lists(tweets: list) -> list:
             tweet = tweet + [np.nan] * (current_max - len(tweet))
         tweets_with_padding.append(tweet)
     return tweets_with_padding
+
+@logger.catch
+def insert_tweets_to_df(tweets: list) -> pd.DataFrame:
+    result = pd.DataFrame()
+    for index, tweet in enumerate(tweets):
+        nouns = tweet
+        if not isinstance(nouns, list):
+            raise TypeError(f"Nouns have invalid type. Expected list, got {type(nouns)}")
+        result[f"tweet{index}"] = nouns
+    return result
     
 
 

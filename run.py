@@ -27,6 +27,9 @@ def main():
             if not is_noun(word):
                 continue
             tweet_nouns.append(word)
+        declat_input.append(tweet_nouns)
+    
+    
         
         
 
