@@ -8,6 +8,12 @@ def convert_tweets_file_content_to_list(content: list) -> list:
             texts.append(el2["text"])
     return texts
 
+@logger.catch
+def text_to_list(text: str, separator=" ") -> list:
+    return text.split(separator)
+
+
+
 
 
 if __name__ == "__main__":
