@@ -16,7 +16,9 @@ def text_to_list(text: str, separator=" ") -> list:
 def alpha_lowercase_list(text: list) -> list:
     return [el.lower() for el in [el for el in text if el.isalpha()]]
 
-
+@logger.catch
+def sorted_without_duplicates_list(text: list) -> list:
+    return sorted(set(text))
 
 
 if __name__ == "__main__":
