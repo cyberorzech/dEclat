@@ -14,8 +14,7 @@ class Tweets:
         cls.__tweets_path = get_settings()["TWEETS_PATH"]
         cls.tweets = list()
         cls.__headers = cls.__create_headers(bearer_token)
-        cls.__query = cls.__create_query(keywords) 
-        # cls.__query = "en:lang"  
+        cls.__query = cls.__create_query(keywords)
 
     @logger.catch
     def get_tweets(cls, number_of_tweets=10):
@@ -97,4 +96,4 @@ class Tweets:
 
 
 if __name__ == "__main__":
-    raise NotImplementedError("Use as package")
+    raise NotImplementedError("Use as class")
