@@ -78,7 +78,7 @@ def add_padding_to_tweet_lists(tweets: list) -> list:
     return tweets_with_padding
 
 @logger.catch
-def insert_tweets_to_df(tweets: list) -> pd.DataFrame:
+def convert_list_of_lists_to_df(tweets: list) -> pd.DataFrame:
     result = pd.DataFrame()
     for index, tweet in enumerate(tweets):
         nouns = tweet
