@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from src.logger import initialize_logger
 from src.tweets_getter import Tweets
-from src.data_cleaner import *
+from src.parser import *
 
 
 def main():
@@ -16,11 +16,12 @@ def main():
     logger.success("Tweets saved")
     
     contents = convert_tweets_file_content_to_list(tweets_content)
+    download_packages()
     for tweet in tqdm(contents):
-        tweet = text_to_list(tweet)
-        tweet = alpha_lowercase_list(tweet)
-        tweet = sorted_without_duplicates_list(tweet)
-        # rzeczowniki
+        tweet_list = text_to_list(tweet)
+        tweet_alpha_lowercase_only = alpha_lowercase_list(tweet_list)
+        tweet_sorted = sorted_without_duplicates_list(tweet_alpha_lowercase_only)
+        nouns_list = extract_nouns(tweet_sorted)
 
 
 
