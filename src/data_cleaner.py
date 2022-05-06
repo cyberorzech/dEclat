@@ -12,6 +12,9 @@ def convert_tweets_file_content_to_list(content: list) -> list:
 def text_to_list(text: str, separator=" ") -> list:
     return text.split(separator)
 
+@logger.catch
+def alpha_lowercase_list(text: list) -> list:
+    return [el.lower() for el in [el for el in text if el.isalpha()]]
 
 
 
