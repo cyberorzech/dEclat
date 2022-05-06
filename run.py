@@ -11,7 +11,7 @@ from src.parser import *
 def main():
     bearer_token = os.environ.get("bearer-token")
     tweets = Tweets(bearer_token, "cyber")
-    tweets_content = tweets.get_tweets(1)
+    tweets_content = tweets.get_tweets(100)
     tweets.save_tweets()
     logger.success("Tweets saved")
     
@@ -27,6 +27,8 @@ def main():
             if not is_noun(word):
                 continue
             tweet_nouns.append(word)
+        if len(tweet_nouns) == 0:
+            continue
         declat_input.append(tweet_nouns)
     
     declat_input = add_padding_to_tweet_lists(declat_input)
