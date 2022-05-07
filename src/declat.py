@@ -4,11 +4,12 @@ import numpy as np
 
 class dEclat:
 
-    result = dict()
+    difsets = dict()
     minSup = 0
 
-    temp0 = list()
+    one_el_tids = dict()
 
+    
     def dEclat(minSup: int, data: pd.DataFrame = None, filename: str = None):
         
         data = pd.read_csv("../fixtures/result.csv", sep=";")
@@ -24,12 +25,11 @@ class dEclat:
         if data is None:
             return
 
-        dEclat.result, start_items_list  = dEclat.get_items(data)
-        # dEclat.result = start_dict
+        dEclat.n = data.shape[1]
 
-        # dEclat.temp0 = start_items_list
+        dEclat.difsets, start_items_list  = dEclat.get_items(data)
+
         dEclat.dEclat_running(start_items_list)
-        # dEclat.convert_to_tids(data.shape[1])
 
     def get_items(data: pd.DataFrame):
         """
@@ -44,23 +44,20 @@ class dEclat:
                 if cell_ij is np.nan:
                     break
 
-                if str({cell_ij}) not in one_length_items_d:
-                    one_length_items_d[str({cell_ij})] = [1, T-{i}]
-                    one_length_items_l.append({cell_ij})
+                if frozenset({cell_ij}) not in one_length_items_d:
+                    one_length_items_d[frozenset({cell_ij})] = [1, T-{i}]
+                    one_length_items_l.append(frozenset({cell_ij}))
                 else:
-                    one_length_items_d[str({cell_ij})][0] += 1
-                    one_length_items_d[str({cell_ij})][1] -= {i}
-        
-        one_length_items_clear = list()
+                    one_length_items_d[frozenset({cell_ij})][0] += 1
+                    one_length_items_d[frozenset({cell_ij})][1] -= {i}
 
-        for i in one_length_items_l:
+        for item in one_length_items_l:
+            if one_length_items_d[item][0] <= dEclat.minSup:                
+                del one_length_items_d[item]
 
-            if one_length_items_d[str(i)][0] <= dEclat.minSup:
-                del one_length_items_d[str(i)]
-            else:
-                one_length_items_clear.append(i)
-                
-        return one_length_items_d, one_length_items_clear
+        one_length_items_l = list(sorted(one_length_items_d.keys(), key=lambda X: next(iter(X))))
+
+        return one_length_items_d, one_length_items_l
 
     def dEclat_running(P: list):
 
@@ -70,23 +67,31 @@ class dEclat:
             for j in range(i+1, len(P)):
                 Xj = P[j]
                 R = Xi.union(Xj)
-                dR = dEclat.result[str(Xj)][1] - dEclat.result[str(Xi)][1]
-                supR = dEclat.result[str(Xi)][0] - len(dR)
+                dR = dEclat.difsets[frozenset(Xj)][1] - dEclat.difsets[frozenset(Xi)][1]
+                supR = dEclat.difsets[frozenset(Xi)][0] - len(dR)
                 if supR > dEclat.minSup:
                     Ti.append(R)
-                    dEclat.result[str(R)] = [supR, dR]
+                    dEclat.difsets[frozenset(R)] = [supR, dR]
             if not Ti:
                 dEclat.dEclat_running(Ti)
 
-    def convert_to_tids(n: int):
-        T = set(range(n))
-
-        for key in dEclat.result.keys():
-            parent_key = dEclat.get_parent_key(key)
-            dEclat.result[key][1] = dEclat.result[parent_key][1] - dEclat.result[key][1] if parent_key else T - dEclat.result[key][1]
-
-    def get_parent_key(key: str):
-        return key[0:key.rfind(',')] + '}' if ',' in key else ""
+    def convert_to_tids():
+        T = set(range(dEclat.n))
+        for dif in dEclat.difsets.items():
+            if len(dif[0]) == 1:
+                dEclat.one_el_tids[dif[0]] = T - dif[1][1]
+        
+    def get_tidlist(elems: frozenset):
+        tid = {}
+        it = 0 
+        for el in elems:
+            if it == 0:
+                tid = dEclat.one_el_tids[frozenset({el})]
+                it = 1
+            else:
+                print(type(tid))
+                tid = tid.intersection(dEclat.one_el_tids[frozenset({el})])
+        return tid
 
 if __name__ == "__main__":
     dEclat.dEclat(4)
