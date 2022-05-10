@@ -11,7 +11,7 @@ class dEclat:
     
     def dEclat(minSup: int, data: pd.DataFrame = None, filename: str = None):
         
-        data = pd.read_csv("../fixtures/result.csv", sep=";")
+        # data = pd.read_csv("fixtures/result.csv", sep=";", dtype=str)
 
         if data is None and filename is not None:
             try:
