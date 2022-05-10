@@ -90,7 +90,6 @@ class dEclat:
                 tid = dEclat.one_el_tids[frozenset({el})]
                 it = 1
             else:
-                print(type(tid))
                 tid = tid.intersection(dEclat.one_el_tids[frozenset({el})])
         return tid
 
