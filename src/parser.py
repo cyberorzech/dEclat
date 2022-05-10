@@ -79,12 +79,14 @@ def add_padding_to_tweet_lists(tweets: list) -> list:
 
 @logger.catch
 def convert_list_of_lists_to_df(tweets: list) -> pd.DataFrame:
-    result = pd.DataFrame()
-    for index, tweet in enumerate(tweets):
-        nouns = tweet
-        if not isinstance(nouns, list):
-            raise TypeError(f"Nouns have invalid type. Expected list, got {type(nouns)}")
-        result[f"tweet{index}"] = nouns
+    # result = pd.DataFrame()
+    # for index, tweet in enumerate(tweets):
+    #     nouns = tweet
+    #     if not isinstance(nouns, list):
+    #         raise TypeError(f"Nouns have invalid type. Expected list, got {type(nouns)}")
+    #     result[f"tweet{index}"] = nouns
+    # return result
+    result = pd.DataFrame(data=tweets)
     return result
     
 

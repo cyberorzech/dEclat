@@ -13,8 +13,8 @@ def main():
     # bearer_token = os.environ.get("bearer-token")
     bearer_token = "AAAAAAAAAAAAAAAAAAAAAF39cAEAAAAApP8tiECTWgvtZEBidPTB39mljAA%3Dtmu6gt0WQ73dAgEdrRJLMG5PZxil22oY5NIznvVgGXwWFEaKnX"
 
-    tweets = Tweets(bearer_token, "cyber")
-    tweets_content = tweets.get_tweets(100)
+    tweets = Tweets(bearer_token, "cyber", "security", "artificial", "intelligence")
+    tweets_content = tweets.get_tweets(100000)
     tweets.save_tweets()
     logger.success("Tweets saved")
     

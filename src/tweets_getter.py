@@ -1,5 +1,5 @@
 import requests
-import os
+from time import sleep
 
 from json import dump
 from tqdm import tqdm
@@ -7,6 +7,7 @@ from loguru import logger
 from src.settings import get_settings
 
 MAX_RESULTS_PER_PAGE = get_settings()["MAX_RESULTS_PER_PAGE"]
+TIME_INTERVAL = 2.1 # 440 requests at most per 15 mins = 2.1s
 
 class Tweets:
     @logger.catch
@@ -27,6 +28,7 @@ class Tweets:
                     raise RuntimeError(f"Got empty response. Query: {cls.__query}")
                 next_token = json_response["meta"]["next_token"]
                 cls.tweets.append(json_response)
+                sleep(TIME_INTERVAL)
             return cls.tweets
         except RuntimeError as re:
             logger.error(re)
@@ -80,6 +82,7 @@ class Tweets:
         #                 'next_token': {}}
         query_params = {
             'query': keyword,
+            'max_results': MAX_RESULTS_PER_PAGE,
             'next_token': next_token
         }
         return search_url, query_params

@@ -1,0 +1,149 @@
+[32m2022-05-10 05:42:23.847[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (482946), thread 'MainThread' (139797551097664):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f252719e0e0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m9999[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x7f25262a7760>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f2520496500>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m'b26v89c19zqg8o3fpywm2ecjmb17izghr3iye7lv507st'[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': 'b26v89c19zqg8o3fpywm2ecjmb17izghr3iye7lv507st'}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f2520496500>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f2520496500>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7f252649d8a0>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-10 05:42:23.851[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-10 05:42:23.878[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 05:42:23.882[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (482946), thread 'MainThread' (139797551097664):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f252719e0e0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x7f252048d510>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-10 05:53:51.299[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (488363), thread 'MainThread' (139993264858944):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f52b88ce0e0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m2[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x7f52b79d7760>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f52b1bc64d0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f52b1bc64d0>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7f52b1bc64d0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7f52b7bcd8a0>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-10 05:53:51.304[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-10 05:53:51.304[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 05:53:51.305[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (488363), thread 'MainThread' (139993264858944):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7f52b88ce0e0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x7f52b1bbd510>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-10 05:58:57.191[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 05:59:37.196[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 05:59:39.294[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 06:05:54.125[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 14:26:29.351[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (4097), thread 'MainThread' (139623960885056):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7efcbc512170>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m4999[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x7efcbb627760>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7efcb58166b0>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber OR AIartificial OR intelligence lang:en', 'max_results': 5000, 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7efcb58166b0>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x7efcb58166b0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mtweets_getter.py[0m", line [33m94[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x7efcbb621850>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"max_results":["5000"]},"message":"The `max_results` query parameter value [5000] is not between 10 and 100"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-10 14:26:29.358[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber OR AIartificial OR intelligence lang:en[0m
+[32m2022-05-10 14:26:29.358[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 14:26:29.358[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (4097), thread 'MainThread' (139623960885056):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x7efcbc512170>[0m
+
+> File "[32m/home/kali/Desktop/dEclat/[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x7efcb580d5a0>[0m
+
+  File "[32m/home/kali/Desktop/dEclat/src/[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-10 14:42:02.674[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 14:44:33.196[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 14:45:58.577[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-10 15:34:32.722[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
