@@ -1,4 +1,3 @@
-from unittest import result
 import pandas as pd
 import numpy as np
 
@@ -83,6 +82,8 @@ class dEclat:
         
     def get_tidlist(elems: frozenset):
         tid = {}
+        if not dEclat.one_el_tids:
+            dEclat.convert_to_tids()
         it = 0 
         for el in elems:
             if it == 0:
