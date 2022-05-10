@@ -8,12 +8,10 @@ from src.tweets_getter import Tweets
 from src.parser import *
 
 
-def main():
-    # 
-    # bearer_token = os.environ.get("bearer-token")
-    bearer_token = "AAAAAAAAAAAAAAAAAAAAAF39cAEAAAAApP8tiECTWgvtZEBidPTB39mljAA%3Dtmu6gt0WQ73dAgEdrRJLMG5PZxil22oY5NIznvVgGXwWFEaKnX"
+def main():    
+    bearer_token = os.environ.get("bearer-token")
 
-    tweets = Tweets(bearer_token, "cyber", "security", "artificial", "intelligence")
+    tweets = Tweets(bearer_token, "poland", "ukraine")
     tweets_content = tweets.get_tweets(100000)
     tweets.save_tweets()
     logger.success("Tweets saved")
@@ -36,7 +34,7 @@ def main():
     
     declat_input = add_padding_to_tweet_lists(declat_input)
     declat_input = convert_list_of_lists_to_df(declat_input)
-    declat_input.to_csv("fixtures/result.csv", sep=";", index=False)
+    declat_input.to_csv("fixtures/poland_result.csv", sep=";", index=False)
         
         
 
