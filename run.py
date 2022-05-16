@@ -14,7 +14,7 @@ def main():
     bearer_token = "AAAAAAAAAAAAAAAAAAAAAF39cAEAAAAApP8tiECTWgvtZEBidPTB39mljAA%3Dtmu6gt0WQ73dAgEdrRJLMG5PZxil22oY5NIznvVgGXwWFEaKnX"
 
     tweets = Tweets(bearer_token, "poland")
-    tweets_content = tweets.get_tweets(1500)
+    tweets_content = tweets.get_tweets(20)
     tweets.save_tweets()
     logger.success("Tweets saved")
     

@@ -1,17 +1,17 @@
 import pandas as pd
 import numpy as np
+import json
 
 class dEclat:
 
+    # difsets[key=wordset] = list([support, diflist])
     difsets = dict()
     minSup = 0
 
-    one_el_tids = dict()
+    tids = dict()
 
     
     def dEclat(minSup: int, data: pd.DataFrame = None, filename: str = None):
-        
-        # data = pd.read_csv("fixtures/result.csv", sep=";", dtype=str)
 
         if data is None and filename is not None:
             try:
@@ -31,9 +31,7 @@ class dEclat:
         dEclat.dEclat_running(start_items_list)
 
     def get_items(data: pd.DataFrame):
-        """
         
-        """
         T = set(range(data.shape[1]))
         one_length_items_d = dict()
         one_length_items_l = list()
@@ -77,21 +75,20 @@ class dEclat:
     def convert_to_tids():
         T = set(range(dEclat.n))
         for dif in dEclat.difsets.items():
-            if len(dif[0]) == 1:
-                dEclat.one_el_tids[dif[0]] = T - dif[1][1]
+            T = set(range(dEclat.n))
+            elems = sorted([x for x in dif[0]])
+            for i in range(len(elems)):
+                T = T - dEclat.difsets[frozenset(elems)][1]
+                elems.pop()
+            dEclat.tids[dif[0]] = {'sup': dif[1][0], 'tidlist': [e for e in T]}
+
+    def save_tids_json(outfilename: str = "tids.json"):
+        jsontids = {str(e[0]): e[1] for e in dEclat.tids.items()}
+        with open(outfilename, 'w') as fp:
+            json.dump(jsontids, fp)
         
-    def get_tidlist(elems: frozenset):
-        tid = {}
-        if not dEclat.one_el_tids:
-            dEclat.convert_to_tids()
-        it = 0 
-        for el in elems:
-            if it == 0:
-                tid = dEclat.one_el_tids[frozenset({el})]
-                it = 1
-            else:
-                tid = tid.intersection(dEclat.one_el_tids[frozenset({el})])
-        return tid
+    def get_value(s: set):
+        return dEclat.tids(frozenset({s}))
 
 if __name__ == "__main__":
     dEclat.dEclat(4)
