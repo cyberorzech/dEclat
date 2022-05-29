@@ -100,7 +100,7 @@ class dEclat:
         return dEclat.tids(frozenset({s}))
 
 if __name__ == "__main__":
-    file = f"../fixtures/result.csv"
+    file = f"../tests/result.csv"
     dEclat.dEclat(4, filename=file)
 
     dEclat.convert_to_tids()

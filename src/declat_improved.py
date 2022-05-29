@@ -148,12 +148,10 @@ class dEclatImpr:
         return dEclatImpr.tids(frozenset({s}))
 
 if __name__ == "__main__":
-    file = f"../fixtures/result.csv"
+    file = f"../tests/result.csv"
     dEclatImpr.dEclatImpr(4, filename=file)
 
     print(dEclatImpr.diftidsets)
-    print("-=-=-=-=-=-=-=")
-    print(dEclatImpr.diftidsets[frozenset({"rt", "pay"})])
 
     df = dEclatImpr.get_items_and_supp()
     dEclatImpr.save_to_file(df, "../tests/data/declimpr.csv")
