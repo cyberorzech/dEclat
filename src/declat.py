@@ -69,8 +69,17 @@ class dEclat:
                 if supR > dEclat.minSup:
                     Ti.append(R)
                     dEclat.difsets[frozenset(R)] = [supR, dR]
-            if not Ti:
+            if Ti: # ? not Ti != []
                 dEclat.dEclat_running(Ti)
+
+    def get_items_and_supp():
+        d = {"itemset": list(dEclat.difsets.keys()), "support": [e[1][0] for e in dEclat.difsets.items()]}
+        df = pd.DataFrame(d)
+        return df
+
+    def save_to_file(df: pd.DataFrame, filename):
+        df.to_csv(filename , sep=";")
+
 
     def convert_to_tids():
         T = set(range(dEclat.n))
@@ -91,4 +100,11 @@ class dEclat:
         return dEclat.tids(frozenset({s}))
 
 if __name__ == "__main__":
-    dEclat.dEclat(4)
+    file = f"../fixtures/result.csv"
+    dEclat.dEclat(4, filename=file)
+
+    dEclat.convert_to_tids()
+    print(dEclat.tids)
+
+    df = dEclat.get_items_and_supp()
+    dEclat.save_to_file(df, "../tests/data/declat.csv")
