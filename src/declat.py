@@ -107,4 +107,6 @@ if __name__ == "__main__":
     print(dEclat.tids)
 
     df = dEclat.get_items_and_supp()
-    dEclat.save_to_file(df, "../tests/data/declat.csv")
+
+    file_to_write = "../tests/data/declat.csv"
+    dEclat.save_to_file(df, file_to_write)
