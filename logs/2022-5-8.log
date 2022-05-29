@@ -1,0 +1,384 @@
+[32m2022-05-08 00:46:02.383[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 00:52:33.099[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (6980), thread 'MainThread' (16632):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000026689189700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m5000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x000002668B7A6D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000002669CD43400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m'b26v89c19zqg8o3fpywm1v4t95jcq2583e76pgj31zrst'[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': 'b26v89c19zqg8o3fpywm1v4t95jcq2583e76pgj31zrst'}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000002669CD43400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000002669CD43400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x000002668B7937C0>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-08 00:52:33.425[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-08 00:52:33.493[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 00:52:33.496[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (6980), thread 'MainThread' (16632):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000026689189700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x000002669CD3B4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 00:55:37.485[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (18056), thread 'MainThread' (12128):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000020CA35B9700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m1000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x0000020CA5BD6D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000020CB7173400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000020CB7173400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000020CB7173400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x0000020CA5BC3770>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-08 00:55:37.533[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-08 00:55:37.536[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 00:55:37.538[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (18056), thread 'MainThread' (12128):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000020CA35B9700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x0000020CB716C4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 00:56:54.613[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (17772), thread 'MainThread' (13784):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x000001DC72B79700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m100[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x000001DC751A6D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001DC06753400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001DC06753400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001DC06753400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x000001DC75195680>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-08 00:56:54.641[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-08 00:56:54.644[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 00:56:54.646[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (17772), thread 'MainThread' (13784):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x000001DC72B79700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x000001DC0674B4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 08:33:50.432[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 08:36:44.481[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (9208), thread 'MainThread' (5972):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000019663C09700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m5000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x0000019666246D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000196777E3400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m'b26v89c19zqg8o3fpywm1v7i6y275owaoyg04y172194t'[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'cyber lang:en', 'next_token': 'b26v89c19zqg8o3fpywm1v7i6y275owaoyg04y172194t'}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000196777E3400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000196777E3400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x0000019666234680>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-08 08:36:44.522[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: cyber lang:en[0m
+[32m2022-05-08 08:36:44.580[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 08:36:44.584[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (9208), thread 'MainThread' (5972):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000019663C09700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x00000196777DC4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 18:06:57.399[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:09:14.214[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (14056), thread 'MainThread' (3868):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000021804949700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m2000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x0000021806F86D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000021818523400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'IT OR artificial intelligence lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000021818523400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x0000021818523400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x0000021806F75680>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["IT OR artificial intelligence lang:en"]},"message":"There were errors processing your request: Rules must contain at least one positive, non-stopword clause (at position 1)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-08 18:09:14.256[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: IT OR artificial intelligence lang:en[0m
+[32m2022-05-08 18:09:14.259[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:09:14.261[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (14056), thread 'MainThread' (3868):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000021804949700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x000002181851C4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 18:10:57.604[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (416), thread 'MainThread' (6728):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x000001ADD59F9700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m2000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x000001ADD8026D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001ADE95C3430>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'IT OR artificial lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001ADE95C3430>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x000001ADE95C3430>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x000001ADD8014720>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["IT OR artificial lang:en"]},"message":"There were errors processing your request: Rules must contain at least one positive, non-stopword clause (at position 1)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-08 18:10:57.632[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: IT OR artificial lang:en[0m
+[32m2022-05-08 18:10:57.634[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:10:57.637[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (416), thread 'MainThread' (6728):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x000001ADD59F9700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x000001ADE95BB4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 18:12:03.487[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:13:34.263[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (15156), thread 'MainThread' (10960):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000022504E09700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m1000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x0000022507426D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000225189C3400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m{}[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'IT OR artificial intelligence lang:en', 'next_token': {}}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000225189C3400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000225189C3400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x00000225074137C0>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [400]>[0m
+    [36m                │        └ [0m[36m[1m400[0m
+    [36m                └ [0m[36m[1m<Response [400]>[0m
+
+[31m[1mException[0m:[1m (400, '{"errors":[{"parameters":{"query":["IT OR artificial intelligence lang:en"]},"message":"There were errors processing your request: Rules must contain at least one positive, non-stopword clause (at position 1)"}],"title":"Invalid Request","detail":"One or more parameters to your request was invalid.","type":"https://api.twitter.com/2/problems/invalid-request"}')[0m
+[32m2022-05-08 18:13:34.296[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: IT OR artificial intelligence lang:en[0m
+[32m2022-05-08 18:13:34.299[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:13:34.302[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (15156), thread 'MainThread' (10960):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x0000022504E09700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x00000225189BB4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 18:14:24.744[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:15:35.964[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:19:46.660[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m25[0m - [31m[1mAn error has been caught in function 'get_tweets', process 'MainProcess' (7728), thread 'MainThread' (2980):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x00000210E45C9700>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m17[0m, in [35mmain[0m
+    [1mtweets_content[0m [35m[1m=[0m [1mtweets[0m[35m[1m.[0m[1mget_tweets[0m[1m([0m[34m[1m2000[0m[1m)[0m
+    [36m                 │      └ [0m[36m[1m<function Tweets.get_tweets at 0x00000210E6BF6D30>[0m
+    [36m                 └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000210F8193400>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m25[0m, in [35mget_tweets[0m
+    [1mjson_response[0m [35m[1m=[0m [1mcls[0m[35m[1m.[0m[1m__connect_to_endpoint[0m[1m([0m[1murl[0m[1m,[0m [1mcls[0m[35m[1m.[0m[1m__headers[0m[1m,[0m [1mquery_params[0m[1m,[0m [1mnext_token[0m[1m)[0m
+    [36m                │                         │    │              │             └ [0m[36m[1m'b26v89c19zqg8o3fpywm21jw0whq08yw12d9pb6487pml'[0m
+    [36m                │                         │    │              └ [0m[36m[1m{'query': 'football OR champions league lang:en', 'next_token': 'b26v89c19zqg8o3fpywm21jw0whq08yw12d9pb6487pml'}[0m
+    [36m                │                         │    └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000210F8193400>[0m
+    [36m                │                         └ [0m[36m[1m'https://api.twitter.com/2/tweets/search/recent'[0m
+    [36m                └ [0m[36m[1m<src.tweets_getter.Tweets object at 0x00000210F8193400>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mtweets_getter.py[0m", line [33m93[0m, in [35m__connect_to_endpoint[0m
+    [35m[1mraise[0m [1mException[0m[1m([0m[1mresponse[0m[35m[1m.[0m[1mstatus_code[0m[1m,[0m [1mresponse[0m[35m[1m.[0m[1mtext[0m[1m)[0m
+    [36m                │        │            │        └ [0m[36m[1m<property object at 0x00000210E6BE5680>[0m
+    [36m                │        │            └ [0m[36m[1m<Response [429]>[0m
+    [36m                │        └ [0m[36m[1m429[0m
+    [36m                └ [0m[36m[1m<Response [429]>[0m
+
+[31m[1mException[0m:[1m (429, '{"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}')[0m
+[32m2022-05-08 18:19:46.689[0m | [31m[1mERROR   [0m | [36msrc.tweets_getter[0m:[36mget_tweets[0m:[36m32[0m - [31m[1mGot empty response. Query: football OR champions league lang:en[0m
+[32m2022-05-08 18:19:46.698[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 18:19:46.701[0m | [31m[1mERROR   [0m | [36m__main__[0m:[36mmain[0m:[36m21[0m - [31m[1mAn error has been caught in function 'main', process 'MainProcess' (7728), thread 'MainThread' (2980):[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m48[0m, in [35m<module>[0m
+    [1mmain[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<function main at 0x00000210E45C9700>[0m
+
+> File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\[0m[32m[1mrun.py[0m", line [33m21[0m, in [35mmain[0m
+    [1mcontents[0m [35m[1m=[0m [1mconvert_tweets_file_content_to_list[0m[1m([0m[1mtweets_content[0m[1m)[0m
+    [36m           │                                   └ [0m[36m[1mNone[0m
+    [36m           └ [0m[36m[1m<function convert_tweets_file_content_to_list at 0x00000210F818C4C0>[0m
+
+  File "[32mD:\Studia\magisterskie\semestr_1\MED\projekt\program\dEclat\src\[0m[32m[1mparser.py[0m", line [33m12[0m, in [35mconvert_tweets_file_content_to_list[0m
+    [35m[1mfor[0m [1mel[0m [35m[1min[0m [1mcontent[0m[1m:[0m
+    [36m          └ [0m[36m[1mNone[0m
+
+[31m[1mTypeError[0m:[1m 'NoneType' object is not iterable[0m
+[32m2022-05-08 18:22:44.457[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
+[32m2022-05-08 19:36:16.903[0m | [32m[1mSUCCESS [0m | [36m__main__[0m:[36mmain[0m:[36m19[0m - [32m[1mTweets saved[0m
