@@ -1,3 +1,10 @@
+# for testing memory and time measurement
+from memory_profiler import profile
+
+import numbers
+import math
+from operator import index
+
 import pandas as pd
 import numpy as np
 import json
@@ -7,42 +14,57 @@ class dEclat:
     # difsets[key=wordset] = list([support, diflist])
     difsets = dict()
     minSup = 0
-
+    n = 0
     tids = dict()
 
-    
-    def dEclat(minSup: int, data: pd.DataFrame = None, filename: str = None):
-
+    # @profile
+    def dEclat(relMinSup: int, data: pd.DataFrame = None, filename: str = None):
+        """
+        data - tweets with words, each row is a representation of tweet
+        """
         if data is None and filename is not None:
             try:
-                data = pd.read_csv(filename, sep=';')
+                data = pd.read_csv(filename, sep=',', dtype=str, index_col=0)
             except:
                 print("Wrong file")
         
-        dEclat.minSup = minSup if minSup else dEclat.minSup
+        dEclat.minSup = relMinSup if relMinSup else dEclat.minSup
 
         if data is None:
             return
 
-        dEclat.n = data.shape[1]
+        
+        dEclat.n = data.shape[0]
+
+        # dEclat.n = data.shape[1]
+        dEclat.minSup = relMinSup * dEclat.n
+
+        # print(data.head)
+        # print(data.iloc[0,0])
 
         dEclat.difsets, start_items_list  = dEclat.get_items(data)
 
+        # print(dEclat.difsets.keys())
+        print(f"number of frequent one elemented sets: {len(dEclat.difsets)}")
+
         dEclat.dEclat_running(start_items_list)
 
+    # @profile
     def get_items(data: pd.DataFrame):
         
-        T = set(range(data.shape[1]))
+        T = set(range(data.shape[0])) # tidlist for empty set (all tweets)
         one_length_items_d = dict()
         one_length_items_l = list()
-        for i in range(data.shape[1]):
-            for j in range(0, data.shape[0]):
-                cell_ij = data.iat[j, i]
-                if cell_ij is np.nan:
-                    break
+
+        for i in range(data.shape[0]):
+            for j in range(0, data.shape[1]):
+                cell_ij = data.iloc[i, j]
+
+                if isinstance(cell_ij, numbers.Number) and np.isnan(cell_ij):
+                    continue
 
                 if frozenset({cell_ij}) not in one_length_items_d:
-                    one_length_items_d[frozenset({cell_ij})] = [1, T-{i}]
+                    one_length_items_d[frozenset({cell_ij})] = [1, T-{i}]# 0 = 
                     one_length_items_l.append(frozenset({cell_ij}))
                 else:
                     one_length_items_d[frozenset({cell_ij})][0] += 1
@@ -52,9 +74,25 @@ class dEclat:
             if one_length_items_d[item][0] <= dEclat.minSup:                
                 del one_length_items_d[item]
 
-        one_length_items_l = list(sorted(one_length_items_d.keys(), key=lambda X: next(iter(X))))
+        one_length_items_l = list(sorted(one_length_items_d.keys(), key=lambda X: X))
 
         return one_length_items_d, one_length_items_l
+
+    def encode_words():
+
+        word_code = {"word": [], "code": []}
+        words = list(dEclat.difsets.keys())
+        i = 0
+        for word in words:
+            word_code["word"].append(word)
+            word_code["code"].append(i)
+            i+=1
+
+        df = pd.DataFrame(word_code)
+        # save encoded words to file
+
+    def save_to_file(df: pd.DataFrame, filename):
+        df.to_csv(filename, sep=",")
 
     def dEclat_running(P: list):
 
@@ -100,13 +138,23 @@ class dEclat:
         return dEclat.tids(frozenset({s}))
 
 if __name__ == "__main__":
-    file = f"../tests/result.csv"
-    dEclat.dEclat(4, filename=file)
+    file = f"../fixtures/datasets/dataset2_case4"
 
-    dEclat.convert_to_tids()
-    print(dEclat.tids)
+    data = pd.read_csv(file, sep=',', dtype=str, index_col=0)
+#
+    dEclat.dEclat(0.1, data=data)#, filename=file)
+#
 
-    df = dEclat.get_items_and_supp()
+    print("* * * * * * * * * * * * * * * *")
+    # print(dEclat.difsets.keys())
+    # print("* * * * * * * * * * * * * * * *")
+    
+    print(f"number of frequent sets: {len(dEclat.difsets)}")
 
-    file_to_write = "../tests/data/declat.csv"
-    dEclat.save_to_file(df, file_to_write)
+    # dEclat.convert_to_tids()
+    # print(dEclat.tids)
+
+    # df = dEclat.get_items_and_supp()
+
+    # file_to_write = "../tests/data/dataset1_case0.csv"
+    # dEclat.save_to_file(df, file_to_write)

@@ -1,65 +1,64 @@
 ;itemset;support
-0;frozenset({'poland'});5
-1;frozenset({'companies'});18
-2;frozenset({'energy'});18
-3;frozenset({'france'});18
-4;frozenset({'germany'});18
-5;frozenset({'pay'});18
-6;frozenset({'rt'});26
-7;frozenset({'companies', 'energy'});18
-8;frozenset({'france', 'companies'});18
-9;frozenset({'germany', 'companies'});18
-10;frozenset({'pay', 'companies'});18
-11;frozenset({'rt', 'companies'});18
-12;frozenset({'france', 'companies', 'energy'});18
-13;frozenset({'germany', 'companies', 'energy'});18
-14;frozenset({'pay', 'companies', 'energy'});18
-15;frozenset({'rt', 'companies', 'energy'});18
-16;frozenset({'germany', 'energy', 'france', 'companies'});18
-17;frozenset({'pay', 'energy', 'france', 'companies'});18
-18;frozenset({'energy', 'rt', 'france', 'companies'});18
-19;frozenset({'germany', 'pay', 'energy', 'france', 'companies'});18
-20;frozenset({'germany', 'energy', 'rt', 'france', 'companies'});18
-21;frozenset({'germany', 'pay', 'energy', 'rt', 'france', 'companies'});18
-22;frozenset({'pay', 'energy', 'rt', 'france', 'companies'});18
-23;frozenset({'germany', 'pay', 'energy', 'companies'});18
-24;frozenset({'germany', 'energy', 'rt', 'companies'});18
-25;frozenset({'germany', 'pay', 'energy', 'rt', 'companies'});18
-26;frozenset({'pay', 'energy', 'rt', 'companies'});18
-27;frozenset({'france', 'germany', 'companies'});18
-28;frozenset({'france', 'pay', 'companies'});18
-29;frozenset({'rt', 'france', 'companies'});18
-30;frozenset({'germany', 'pay', 'france', 'companies'});18
-31;frozenset({'germany', 'rt', 'france', 'companies'});18
-32;frozenset({'germany', 'pay', 'rt', 'france', 'companies'});18
-33;frozenset({'pay', 'rt', 'france', 'companies'});18
-34;frozenset({'germany', 'pay', 'companies'});18
-35;frozenset({'rt', 'germany', 'companies'});18
-36;frozenset({'germany', 'pay', 'rt', 'companies'});18
-37;frozenset({'rt', 'pay', 'companies'});18
-38;frozenset({'france', 'energy'});18
-39;frozenset({'germany', 'energy'});18
-40;frozenset({'pay', 'energy'});18
-41;frozenset({'rt', 'energy'});18
-42;frozenset({'france', 'germany', 'energy'});18
-43;frozenset({'france', 'pay', 'energy'});18
-44;frozenset({'rt', 'france', 'energy'});18
-45;frozenset({'germany', 'pay', 'energy', 'france'});18
-46;frozenset({'germany', 'energy', 'rt', 'france'});18
-47;frozenset({'germany', 'pay', 'energy', 'rt', 'france'});18
-48;frozenset({'pay', 'energy', 'rt', 'france'});18
-49;frozenset({'germany', 'pay', 'energy'});18
-50;frozenset({'rt', 'germany', 'energy'});18
-51;frozenset({'germany', 'pay', 'energy', 'rt'});18
-52;frozenset({'rt', 'pay', 'energy'});18
-53;frozenset({'france', 'germany'});18
-54;frozenset({'france', 'pay'});18
-55;frozenset({'france', 'rt'});18
-56;frozenset({'france', 'germany', 'pay'});18
-57;frozenset({'france', 'germany', 'rt'});18
-58;frozenset({'germany', 'pay', 'rt', 'france'});18
-59;frozenset({'france', 'pay', 'rt'});18
-60;frozenset({'germany', 'pay'});18
-61;frozenset({'germany', 'rt'});18
-62;frozenset({'germany', 'pay', 'rt'});18
-63;frozenset({'pay', 'rt'});18
+0;frozenset({'companies'});18
+1;frozenset({'energy'});18
+2;frozenset({'france'});18
+3;frozenset({'germany'});18
+4;frozenset({'pay'});18
+5;frozenset({'rt'});26
+6;frozenset({'energy', 'companies'});18
+7;frozenset({'france', 'companies'});18
+8;frozenset({'companies', 'germany'});18
+9;frozenset({'pay', 'companies'});18
+10;frozenset({'rt', 'companies'});18
+11;frozenset({'energy', 'france', 'companies'});18
+12;frozenset({'energy', 'companies', 'germany'});18
+13;frozenset({'energy', 'pay', 'companies'});18
+14;frozenset({'energy', 'rt', 'companies'});18
+15;frozenset({'france', 'germany', 'energy', 'companies'});18
+16;frozenset({'pay', 'france', 'energy', 'companies'});18
+17;frozenset({'france', 'rt', 'energy', 'companies'});18
+18;frozenset({'pay', 'france', 'germany', 'energy', 'companies'});18
+19;frozenset({'france', 'rt', 'germany', 'energy', 'companies'});18
+20;frozenset({'pay', 'france', 'rt', 'germany', 'energy', 'companies'});18
+21;frozenset({'pay', 'france', 'rt', 'energy', 'companies'});18
+22;frozenset({'pay', 'germany', 'energy', 'companies'});18
+23;frozenset({'rt', 'germany', 'energy', 'companies'});18
+24;frozenset({'pay', 'rt', 'germany', 'energy', 'companies'});18
+25;frozenset({'pay', 'rt', 'energy', 'companies'});18
+26;frozenset({'france', 'companies', 'germany'});18
+27;frozenset({'pay', 'france', 'companies'});18
+28;frozenset({'france', 'rt', 'companies'});18
+29;frozenset({'pay', 'france', 'germany', 'companies'});18
+30;frozenset({'france', 'rt', 'germany', 'companies'});18
+31;frozenset({'pay', 'france', 'rt', 'germany', 'companies'});18
+32;frozenset({'pay', 'france', 'rt', 'companies'});18
+33;frozenset({'pay', 'companies', 'germany'});18
+34;frozenset({'rt', 'companies', 'germany'});18
+35;frozenset({'pay', 'rt', 'germany', 'companies'});18
+36;frozenset({'pay', 'rt', 'companies'});18
+37;frozenset({'energy', 'france'});18
+38;frozenset({'energy', 'germany'});18
+39;frozenset({'energy', 'pay'});18
+40;frozenset({'energy', 'rt'});18
+41;frozenset({'energy', 'france', 'germany'});18
+42;frozenset({'energy', 'pay', 'france'});18
+43;frozenset({'energy', 'france', 'rt'});18
+44;frozenset({'pay', 'france', 'germany', 'energy'});18
+45;frozenset({'france', 'rt', 'germany', 'energy'});18
+46;frozenset({'pay', 'france', 'rt', 'germany', 'energy'});18
+47;frozenset({'pay', 'france', 'rt', 'energy'});18
+48;frozenset({'energy', 'pay', 'germany'});18
+49;frozenset({'energy', 'rt', 'germany'});18
+50;frozenset({'pay', 'rt', 'germany', 'energy'});18
+51;frozenset({'energy', 'pay', 'rt'});18
+52;frozenset({'france', 'germany'});18
+53;frozenset({'pay', 'france'});18
+54;frozenset({'france', 'rt'});18
+55;frozenset({'pay', 'france', 'germany'});18
+56;frozenset({'france', 'rt', 'germany'});18
+57;frozenset({'pay', 'france', 'rt', 'germany'});18
+58;frozenset({'pay', 'france', 'rt'});18
+59;frozenset({'pay', 'germany'});18
+60;frozenset({'rt', 'germany'});18
+61;frozenset({'pay', 'rt', 'germany'});18
+62;frozenset({'pay', 'rt'});18

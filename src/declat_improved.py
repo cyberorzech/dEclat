@@ -1,3 +1,7 @@
+# for testing memory and time measurement
+from memory_profiler import profile
+
+import numbers
 import pandas as pd
 import numpy as np
 import json
@@ -12,23 +16,31 @@ class dEclatImpr:
 
     tids = dict()
 
-    
-    def dEclatImpr(minSup: int, data: pd.DataFrame = None, filename: str = None):
+    @profile
+    def dEclatImpr(relMinSup: int, data: pd.DataFrame = None, filename: str = None):
 
         if data is None and filename is not None:
             try:
-                data = pd.read_csv(filename, sep=';')
+                data = pd.read_csv(filename, sep=',', dtype=str, index_col=0)
             except:
                 print("Wrong file")
         
-        dEclatImpr.minSup = minSup if minSup else dEclatImpr.minSup
+        dEclatImpr.minSup = relMinSup if relMinSup else dEclatImpr.minSup
 
         if data is None:
             return
 
-        dEclatImpr.n = data.shape[1]
+        dEclatImpr.n = data.shape[0]
+
+        dEclatImpr.minSup = relMinSup * dEclatImpr.n
+
+        # print(data.head)
 
         dEclatImpr.diftidsets, start_items_list  = dEclatImpr.get_items(data)
+
+        print(f"one element freqsets: {len(dEclatImpr.diftidsets)}")
+
+        # print(dEclatImpr.diftidsets)
 
         dEclatImpr.dEclatImpr_running(start_items_list)
 
@@ -38,11 +50,11 @@ class dEclatImpr:
         T = set(range(dEclatImpr.n))
         one_length_items_d = dict() # dict[itemset] = [support, transaction_list(tid/dif), tid_or_dif_flag] 
         one_length_items_l = list() 
-        for i in range(data.shape[1]):
-            for j in range(0, data.shape[0]):
-                cell_ij = data.iat[j, i]
-                if cell_ij is np.nan:
-                    break
+        for i in range(data.shape[0]):
+            for j in range(0, data.shape[1]):
+                cell_ij = data.iloc[i, j]
+                if isinstance(cell_ij, numbers.Number):
+                    continue
 
                 if frozenset({cell_ij}) not in one_length_items_d:
                     one_length_items_d[frozenset({cell_ij})] = [1, {i}, 't']
@@ -86,11 +98,6 @@ class dEclatImpr:
                 R = Xi.union(Xj)
                 tdR, tdR_flag = dEclatImpr.calculate_tiddif(Xi, Xj)
                 supR = dEclatImpr.calculate_support(Xi, tdR, tdR_flag)
-                 
-                # print(f"Xi: {dEclatImpr.diftidsets[frozenset(Xi)]}")
-                # print(f"Xj: {dEclatImpr.diftidsets[frozenset(Xj)]}")
-                # print(f"R = {R}, tdR = {tdR}, tdR_flag = {tdR_flag}, sup = {supR}")
-                # input(f"Iteracja ij: {i} {j}")
                 
                 if supR > dEclatImpr.minSup:
                     dEclatImpr.diftidsets[frozenset(R)] = [supR, tdR, tdR_flag]
@@ -129,29 +136,22 @@ class dEclatImpr:
     def save_to_file(df: pd.DataFrame, filename):
         df.to_csv(filename , sep=";")
 
-    # def convert_to_tids():
-    #     T = set(range(dEclat.n))
-    #     for dif in dEclat.difsets.items():
-    #         T = set(range(dEclat.n))
-    #         elems = sorted([x for x in dif[0]])
-    #         for i in range(len(elems)):
-    #             T = T - dEclat.difsets[frozenset(elems)][1]
-    #             elems.pop()
-    #         dEclat.tids[dif[0]] = {'sup': dif[1][0], 'tidlist': [e for e in T]}
-
-    # def save_tids_json(outfilename: str = "tids.json"):
-    #     jsontids = {str(e[0]): e[1] for e in dEclatImpr.tids.items()}
-    #     with open(outfilename, 'w') as fp:
-    #         json.dump(jsontids, fp)
         
     def get_value(s: set):
         return dEclatImpr.tids(frozenset({s}))
 
 if __name__ == "__main__":
-    file = f"../tests/result.csv"
-    dEclatImpr.dEclatImpr(4, filename=file)
+    file = f"../fixtures/datasets/dataset2_case4"
 
-    print(dEclatImpr.diftidsets)
+    data = pd.read_csv(file, sep=',', dtype=str, index_col=0)
 
-    df = dEclatImpr.get_items_and_supp()
-    dEclatImpr.save_to_file(df, "../tests/data/declimpr.csv")
+    dEclatImpr.dEclatImpr(0.1, data=data)
+
+    # df = dEclatImpr.get_items_and_supp()
+    # dEclatImpr.save_to_file(df, "../tests/data/declimpr.csv")
+
+    print("* * * * * * * * * * * * * * * *")
+    # print(dEclat.difsets.keys())
+    # print("* * * * * * * * * * * * * * * *")
+    
+    print(f"number of frequent sets: {len(dEclatImpr.diftidsets)}")
